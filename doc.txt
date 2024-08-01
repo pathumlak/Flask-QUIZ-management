@@ -23,6 +23,7 @@ def setUp(self):
         app.config['MONGO_URI'] = 'mongodb://127.0.0.1:27017/test'
         self.app = app.test_client()
         self.app.testing = True
-        mongo.db.users.delete_many({})  # Clear the users collection before each test
-        mongo.db.quizzes.delete_many({})  # Clear the quizzes collection before each test
-        mongo.db.results.delete_many({})  # Clear the results collection before each test
+         # Clear the results collection before each test
+
+
+pip install webdriver-manager
