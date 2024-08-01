@@ -43,3 +43,7 @@ Run the unit tests to ensure everything is working correctly:
 ```sh
 python -m unittest discover
 
+<p align="center">
+  <img src="screenshots/Screenshot 2024-08-02 004623.png" alt="Home Page" width="400px" style="border: 2px solid black; border-radius: 10px;">
+</p>
+<p align="center" style="font-size: 1.5em; font-weight: bold;">Home Page</p>
