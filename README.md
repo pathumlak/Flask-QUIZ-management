@@ -41,7 +41,3 @@ Welcome to the **Flask Quiz Management Application**! This project allows admins
 Run the unit tests to ensure everything is working correctly:
 ```sh
 python -m unittest discover
-
-
-![HOME PAGE](screenshots/home.png)
-![ADMIN PAGE](screenshots/admin.png)
