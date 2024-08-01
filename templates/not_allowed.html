@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Not Allowed</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      .highlight {
+        color: #ff0000;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div
+      class="bg-white p-6 rounded shadow-md text-center w-full max-w-3xl custom-shadow"
+    >
+      <h2 class="text-3xl font-bold mb-4 text-purple-700">Access Denied</h2>
+      <p class="text-xl mb-4 text-gray-700">
+        You are not allowed to take the exam. Please contact your admin.
+      </p>
+      <div class="mt-4">
+        <a
+          href="{{ url_for('dashboard') }}"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+          >Back to Dashboard</a
+        >
+      </div>
+      <div class="mt-4">
+        <a
+          href="{{ url_for('logout') }}"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

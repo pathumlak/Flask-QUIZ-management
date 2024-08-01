@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>View Results</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+    <div
+      class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-3xl custom-shadow"
+    >
+      <h2 class="text-3xl font-extrabold mb-6 text-gray-800">
+        Student Results
+      </h2>
+      <table class="table-auto w-full mb-6">
+        <thead>
+          <tr class="bg-gray-200">
+            <th class="px-4 py-2">Username</th>
+            <th class="px-4 py-2">Score</th>
+            <th class="px-4 py-2">Total Questions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for result in results %}
+          <tr class="bg-gray-50 hover:bg-gray-100">
+            <td class="border px-4 py-2">{{ result.username }}</td>
+            <td class="border px-4 py-2">{{ result.score }}</td>
+            <td class="border px-4 py-2">{{ result.total_questions }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="mt-6">
+        <p class="text-lg text-gray-700">Mean: {{ mean }}</p>
+        <p class="text-lg text-gray-700">Average: {{ avg }}</p>
+      </div>
+      <div class="mt-6 flex justify-center space-x-4">
+        <a
+          href="{{ url_for('download_results') }}"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >Download CSV</a
+        >
+        <a
+          href="{{ url_for('dashboard') }}"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >Back to Dashboard</a
+        >
+        <a
+          href="{{ url_for('logout') }}"
+          class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

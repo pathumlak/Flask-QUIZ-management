@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit Quiz</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-3xl">
+      <h2 class="text-3xl font-extrabold text-gray-800 mb-6">Edit Quiz</h2>
+      <form method="POST">
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Question:</label
+          >
+          <input
+            type="text"
+            name="question"
+            value="{{ quiz.question }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Option 1:</label
+          >
+          <input
+            type="text"
+            name="option1"
+            value="{{ quiz.options[0] }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Option 2:</label
+          >
+          <input
+            type="text"
+            name="option2"
+            value="{{ quiz.options[1] }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Option 3:</label
+          >
+          <input
+            type="text"
+            name="option3"
+            value="{{ quiz.options[2] }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Option 4:</label
+          >
+          <input
+            type="text"
+            name="option4"
+            value="{{ quiz.options[3] }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Correct Answer:</label
+          >
+          <input
+            type="text"
+            name="correct_answer"
+            value="{{ quiz.correct_answer }}"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <button
+          type="submit"
+          class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+        >
+          Update Quiz
+        </button>
+      </form>
+      <div class="mt-6 flex justify-center space-x-4">
+        <a
+          href="{{ url_for('dashboard') }}"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >Back to Dashboard</a
+        >
+        <a
+          href="{{ url_for('logout') }}"
+          class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >Logout</a
+        >
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      .hero-image {
+        background-image: url("/static/images/student.jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 400px;
+        width: 500px;
+      }
+      .clock {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4a5568;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col items-center justify-center">
+    <div class="clock mt-4" id="clock"></div>
+    <div class="bg-white p-6 rounded shadow-md text-center custom-shadow mt-4">
+      <div class="hero-image mb-6 rounded"></div>
+      <h2 class="text-3xl font-bold mb-4 text-purple-700">Welcome Student</h2>
+      <div class="mt-4">
+        <a
+          href="{{ url_for('take_exam') }}"
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+          >Enter Exam</a
+        >
+      </div>
+      <div class="mt-4">
+        <a
+          href="{{ url_for('logout') }}"
+          class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out"
+          >Logout</a
+        >
+      </div>
+    </div>
+
+    <script>
+      function updateClock() {
+        const now = luxon.DateTime.now().toLocaleString(
+          luxon.DateTime.DATETIME_MED_WITH_SECONDS
+        );
+        document.getElementById("clock").textContent = now;
+      }
+      setInterval(updateClock, 1000);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.1/build/global/luxon.min.js"></script>
+  </body>
+</html>

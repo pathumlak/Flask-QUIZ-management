@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Manage Quizzes</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col">
+    <nav class="bg-white shadow-md w-full">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+          <div class="flex items-center">
+            <a
+              href="{{ url_for('dashboard') }}"
+              class="text-xl font-bold text-gray-800"
+              >Dashboard</a
+            >
+          </div>
+          <div class="flex space-x-4">
+            <a
+              href="{{ url_for('dashboard') }}"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
+              >Dashboard</a
+            >
+            <a
+              href="{{ url_for('logout') }}"
+              class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 ease-in-out"
+              >Logout</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="flex-grow flex items-center justify-center">
+      <div
+        class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-3xl custom-shadow"
+      >
+        <h2 class="text-3xl font-extrabold mb-6 text-gray-800">
+          Manage Quizzes
+        </h2>
+        <form method="POST">
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Question:</label
+            >
+            <input
+              type="text"
+              name="question"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Option 1:</label
+            >
+            <input
+              type="text"
+              name="option1"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Option 2:</label
+            >
+            <input
+              type="text"
+              name="option2"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Option 3:</label
+            >
+            <input
+              type="text"
+              name="option3"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Option 4:</label
+            >
+            <input
+              type="text"
+              name="option4"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <div class="mb-5">
+            <label class="block text-gray-700 text-sm font-bold mb-2"
+              >Correct Answer:</label
+            >
+            <input
+              type="text"
+              name="correct_answer"
+              required
+              class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            />
+          </div>
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >
+            Add Quiz
+          </button>
+        </form>
+        <div class="mt-6">
+          <h3 class="text-xl font-bold mb-4">Existing Quizzes</h3>
+          <ul class="text-left">
+            {% for quiz in quizzes %}
+            <li
+              class="mb-4 flex items-center justify-between bg-gray-50 p-4 rounded-lg shadow-inner"
+            >
+              <span class="font-semibold">{{ quiz.question }}</span>
+              <div class="flex space-x-2">
+                <a
+                  href="{{ url_for('edit_quiz', quiz_id=quiz._id) }}"
+                  class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-1 px-4 rounded-lg transition duration-300 ease-in-out"
+                  >Edit</a
+                >
+                <a
+                  href="{{ url_for('delete_quiz', quiz_id=quiz._id) }}"
+                  class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-4 rounded-lg transition duration-300 ease-in-out"
+                  >Delete</a
+                >
+              </div>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

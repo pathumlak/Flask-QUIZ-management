@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exam</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+      .question {
+        border-left: 4px solid #4a90e2;
+        padding-left: 10px;
+      }
+      .radio-input {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+      }
+      .radio-label {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex flex-col items-center">
+    <nav class="w-full bg-purple-700 p-4 shadow-md">
+      <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+        <div class="relative flex items-center justify-between h-16">
+          <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+            <button
+              type="button"
+              class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+              aria-controls="mobile-menu"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <svg
+                class="block h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+              <svg
+                class="hidden h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start"
+          >
+            <div class="flex-shrink-0">
+              <h1 class="text-white text-2xl font-bold">Exam Portal</h1>
+            </div>
+            <div class="hidden sm:block sm:ml-6">
+              <div class="flex space-x-4">
+                <a
+                  href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >Home</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >Exams</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >Results</a
+                >
+                <a
+                  href="#"
+                  class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  >Contact</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="bg-white p-8 rounded-lg shadow-lg text-center w-full max-w-3xl custom-shadow mt-8"
+    >
+      <h2 class="text-3xl font-extrabold mb-6 text-purple-700">Exam</h2>
+      <form method="POST">
+        {% for quiz in quizzes %}
+        <div class="mb-6 question bg-gray-50 p-4 rounded-lg shadow-inner">
+          <p class="text-left text-gray-800 text-xl font-semibold">
+            {{ quiz.question }}
+          </p>
+          <div class="mt-4 text-left">
+            {% for option in quiz.options %}
+            <label
+              class="block text-gray-700 text-sm font-bold mb-2 radio-label"
+            >
+              <input
+                type="radio"
+                name="{{ quiz._id }}"
+                value="{{ option }}"
+                required
+                class="radio-input focus:ring-2 focus:ring-purple-500"
+              />
+              {{ option }}
+            </label>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+        <button
+          type="submit"
+          class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

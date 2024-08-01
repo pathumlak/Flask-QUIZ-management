@@ -1,0 +1,60 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.build/
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# PyMongo database files
+*.db
+
+# Environment variables
+.env
+
+# Flask cache files
+*.log
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# Pytest
+.pytest_cache/
+
+# Cython debug symbols
+cython_debug/
+
+# VS Code
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Sphinx documentation
+docs/_build/

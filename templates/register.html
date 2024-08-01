@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Register</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .custom-shadow {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-100 h-screen flex items-center justify-center">
+    <div
+      class="bg-white p-8 rounded-lg shadow-lg text-center custom-shadow w-full max-w-sm"
+    >
+      <h2 class="text-3xl font-extrabold mb-6 text-gray-800">Register</h2>
+      <form method="POST">
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Username:</label
+          >
+          <input
+            type="text"
+            name="username"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div class="mb-5">
+          <label class="block text-gray-700 text-sm font-bold mb-2"
+            >Password:</label
+          >
+          <input
+            type="password"
+            name="password"
+            required
+            class="shadow appearance-none border rounded-lg w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+          />
+        </div>
+        <div>
+          <button
+            type="submit"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300 ease-in-out"
+          >
+            Register
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
