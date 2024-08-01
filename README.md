@@ -13,7 +13,6 @@ Welcome to the **Flask Quiz Management Application**! This project allows admins
 
 ## 🛠️ Installation
 
-
 1. **Set up a virtual environment**:
     ```sh
     python -m venv venv
